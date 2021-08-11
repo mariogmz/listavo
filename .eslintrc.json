@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": [
+            "node_modules",
+            "app/javascript"
+          ]
+        }
+      }
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "allowImportExportEverywhere": true,
+      "ecmaFeatures": {
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "forOf": true,
+        "modules": true,
+        "classes": true,
+        "defaultParams": true,
+        "destructuring": true,
+        "restParams": true,
+        "rest": true,
+        "superInFunctions": true,
+        "templateStrings": true,
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      "jsx-a11y/label-has-associated-control": 0,
+      "jsx-a11y/label-has-for": 0,
+      "jsx-quotes": [2, "prefer-double"],
+      "react/forbid-prop-types": 0,
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    }
+}
