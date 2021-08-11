@@ -13,6 +13,7 @@ gem "webpacker", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "redis", "~> 4.0"
+gem "devise", "~> 4.8"
 
 gem "haml"
 gem "haml-rails"
