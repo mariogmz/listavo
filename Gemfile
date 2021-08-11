@@ -40,6 +40,7 @@ group :test do
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "webdrivers"
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
