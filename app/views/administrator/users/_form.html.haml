@@ -1,0 +1,30 @@
+= form_for(page.resource, as: page.resource_name, url: registration_path(page.resource_name), html: { class: "form" }) do |f|
+  - if page.resource.errors.any?
+    #error_explanation
+      %h2
+        = t(                                                                                        |
+            "administrate.form.errors",                                                             |
+            pluralized_errors: pluralize(page.resource.errors.count, t("administrate.form.error")), |
+            resource_name: display_resource_name(page.resource_name, singular: true)                |
+          )                                                                                         |
+      %ul
+        - page.resource.errors.full_messages.each do |message|
+          %li.flash-error= message
+  - page.attributes.each do |attribute|
+    %div{:class => "field-unit field-unit--#{attribute.html_class} field-unit--#{requireness(attribute)}"}
+      = render_field attribute, f: f
+  - if action_name === "edit"
+    %h2= t(".edit_password")
+    %hr
+  .field-unit.field-unit-password.field-unit--required
+    = f.label :password, class: "field-unit__label"
+    = f.password_field :password, autocomplete: "new-password", class: "field-unit__field"
+  .field-unit.field-unit-password.field-unit--required
+    = f.label :password_confirmation, class: "field-unit__label"
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: "field-unit__field"
+  - if action_name === "edit"
+    .field-unit.field-unit-password.field-unit--required
+      = f.label :current_password, class: "field-unit__label"
+      = f.password_field :current_password, autocomplete: "new-password", class: "field-unit__field"
+  .form-actions
+    = f.submit

@@ -30,8 +30,8 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    name
     email
+    name
     phone
     notification_days
   ].freeze
@@ -39,36 +39,24 @@ class UserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    enqueues
-    patients
     id
-    email
-    encrypted_password
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
     name
+    email
     phone
     notification_days
-    created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    enqueues
-    patients
-    email
-    encrypted_password
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
     name
+    email
     phone
     notification_days
   ].freeze
+
+
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search

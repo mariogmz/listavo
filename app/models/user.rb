@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :enqueues
   has_many :patients, through: :enqueues
+
+  validates_presence_of :email, :name, :phone, :notification_days
 end
