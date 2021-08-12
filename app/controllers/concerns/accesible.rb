@@ -7,14 +7,13 @@ module Accesible
   end
 
   protected
-
-  def check_user
-    if current_admin
-      flash.clear
-      redirect_to(administrator_root_path) and return
-    elsif current_user
-      flash.clear
-      redirect_to(root_path) and return
+    def check_user
+      if current_admin
+        flash.clear
+        redirect_to(administrator_root_path) and return
+      elsif current_user
+        flash.clear
+        redirect_to(root_path) and return
+      end
     end
-  end
 end

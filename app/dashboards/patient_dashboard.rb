@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class PatientDashboard < Administrate::BaseDashboard
@@ -13,7 +15,8 @@ class PatientDashboard < Administrate::BaseDashboard
     name: Field::String,
     email: Field::String,
     phone: Field::String,
-    shift: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    shift: Field::Select.with_options(searchable: false, collection: ->(field) {
+ field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze

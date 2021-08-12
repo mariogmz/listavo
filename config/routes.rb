@@ -22,5 +22,4 @@ Rails.application.routes.draw do
     passwords: "users/passwords",
     registrations: "users/registrations",
   }
-
 end

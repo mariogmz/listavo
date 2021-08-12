@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateEnqueues < ActiveRecord::Migration[6.1]
   def change
     create_table :enqueues do |t|

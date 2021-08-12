@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Administrator
   class PatientsController < Administrator::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
