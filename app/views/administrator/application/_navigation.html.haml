@@ -1,0 +1,9 @@
+%nav.navigation{:role => "navigation"}
+  %p= t("administrate.navigation.greeting", name: current_admin.name)
+  = link_to(t("administrate.navigation.sign_out"), destroy_admin_session_url, method: :delete, class: "button button--alt button--nav") if defined?(root_url)
+  - Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource|
+    = link_to(                                                                                    |
+        display_resource_name(resource),                                                          |
+        resource_index_route(resource),                                                           |
+        class: "navigation__link navigation__link--#{nav_link_state(resource)}"                   |
+      ) if valid_action?(:index, resource) && show_action?(:index, model_from_resource(resource)) |

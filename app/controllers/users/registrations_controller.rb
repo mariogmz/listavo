@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   include Accesible
-  before_action :authenticate_admin!, only: [:new, :create]
+  before_action ->{ authenticate_admin!(force: true) }, only: [:new, :create]
   skip_before_action :check_user, except: [:new, :create]
 
   # before_action :configure_sign_up_params, only: [:create]

@@ -16,6 +16,9 @@ es-MX:
       admin:
         email: Correo electrónico
         name: Nombre
+        password: Contraseña
+        password_confirmation: Confirmar contraseña
+        current_password: Contraseña actual
         created_at: Fecha de alta
         updated_at: Fecha de actualización
       user:
@@ -253,10 +256,19 @@ es-MX:
       long: "%A, %d de %B de %Y a las %I:%M %p"
       short: "%d de %b a las %H:%M hrs"
     pm: pm
+  administrator:
+    admins:
+      form:
+        edit_password: Si deseas cambiar la contraseña porfavor llena los campos
   administrate:
     actions:
       new_resource: Nuevo %{name}
+      edit_resource: Editar %{name}
+      show_resource: "%{name}"
+      edit: Editar
+      destroy: Eliminar
     navigation:
-      back_to_app: Volver al inicio
+      greeting: Bienvenido(a) %{name}
+      sign_out: Cerrar sesión
     search:
       label: Busca algo
