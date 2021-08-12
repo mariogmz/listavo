@@ -11,25 +11,16 @@ Rails.application.routes.draw do
     end
   root to: "application#index"
 
-  devise_for :admins, path: "admin", skip: [:registrations], controllers: {
+  devise_for :admins, path: "admin", controllers: {
     sessions: "admins/sessions",
     passwords: "admins/passwords",
+    registrations: "admins/registrations",
   }
 
-  devise_for :users, path: "user", skip: [:registrations], controllers: {
+  devise_for :users, path: "user", controllers: {
     sessions: "users/sessions",
     passwords: "users/passwords",
+    registrations: "users/registrations",
   }
-
-  # Disable new registrations
-  as :admin do
-    get "admin/edit" => "admins/registrations#edit", as: "edit_admin_registration"
-    put "admin" => "admins/registrations#update", as: "admin_registration"
-  end
-
-  as :user do
-    get "user/edit" => "users/registrations#edit", as: "edit_user_registration"
-    put "user" => "users/registrations#update", as: "user_registration"
-  end
 
 end

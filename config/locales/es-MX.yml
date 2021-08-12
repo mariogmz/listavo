@@ -255,7 +255,7 @@ es-MX:
     pm: pm
   administrate:
     actions:
-      new_resource: Nuevo
+      new_resource: Nuevo %{name}
     navigation:
       back_to_app: Volver al inicio
     search:
