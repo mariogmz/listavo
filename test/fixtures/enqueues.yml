@@ -1,11 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+patient1:
+  user: user
+  patient: patient1
+  booked_at: <%= Time.current %>
 
-one:
-  user: one
-  patient: one
-  booked_at: 2021-08-11 17:43:08
-
-two:
-  user: two
-  patient: two
-  booked_at: 2021-08-11 17:43:08
+patient2:
+  user: user
+  patient: patient2
+  booked_at: <%= 15.days.ago %>

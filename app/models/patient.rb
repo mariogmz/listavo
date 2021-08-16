@@ -7,5 +7,8 @@ class Patient < ApplicationRecord
     evening: 2,
   }, _prefix: true
 
+  validates_presence_of :name, :phone, :shift
+  validates_inclusion_of :shift, in: shifts.keys
+
   has_one :enqueue
 end

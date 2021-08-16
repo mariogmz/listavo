@@ -261,6 +261,7 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
     sexp_processor (4.15.3)
+    shoulda-context (2.0.0)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
     simplecov (0.21.2)
@@ -334,6 +335,7 @@ DEPENDENCIES
   rubocop-rails_config
   sass-rails (>= 6)
   selenium-webdriver
+  shoulda-context (~> 2.0)
   shoulda-matchers (~> 5.0)
   simplecov
   spring

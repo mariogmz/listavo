@@ -1,13 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+patient1:
+  name: Patient 1
+  email: patient1@test.com
+  phone: "4491234567"
+  shift: <%= Patient.shifts.keys.sample %>
 
-one:
-  name: MyString
-  email: MyString
-  phone: MyString
-  shift: 
-
-two:
-  name: MyString
-  email: MyString
-  phone: MyString
-  shift: 
+patient2:
+  name: Patient 2
+  email: patient2@test.com
+  phone: "4497894561"
+  shift: <%= Patient.shifts.keys.sample %>
