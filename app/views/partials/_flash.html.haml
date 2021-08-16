@@ -1,2 +1,6 @@
-- flash.each do |type, message|
-  .alert{ class: "alert-#{type}"}= message
+.container
+  - flash.each do |key, message|
+    - type = ApplicationHelper::FLASHES[key]
+    .alert.alert-dismissible.d-flex.align-items-centerfade.show{ class: "alert-#{type}", role: "alert" }
+      %p.mb-0= message
+      = button_tag "", type: "button", class: "btn-close", "data-bs-dismiss": "alert", "aria-label": "Close"
