@@ -272,3 +272,8 @@ es-MX:
       sign_out: Cerrar sesión
     search:
       label: Busca algo
+  routes:
+    enqueues: citas
+  invite_links:
+    show:
+      your_invite_link: Tu liga de citas es
