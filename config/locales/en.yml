@@ -33,3 +33,8 @@ en:
   hello: "Hello world"
   routes:
     enqueues: book-appointment
+  tooltips:
+    copied: Copied!
+  invite_links:
+    show:
+      your_invite_link: Your invite link is
