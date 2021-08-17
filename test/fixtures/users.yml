@@ -1,5 +1,6 @@
 user:
   email: "user@test.com"
   encrypted_password: <&= Devise.bcrypt(Admin, 'test123!') %>
+  phone: "4494458956"
   name: User
   notification_days: 15
