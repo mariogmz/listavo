@@ -6,6 +6,7 @@ module ApplicationHelper
   end.tap do |hash|
     hash["alert"] = "danger"
     hash["notice"] = "primary"
+    hash["error"] = "danger"
   end
 
   def shifts_options

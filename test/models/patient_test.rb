@@ -14,6 +14,8 @@ class PatientTest < ActiveSupport::TestCase
       afternoon: 1,
       evening: 2,
     ).with_prefix(true)
+    should validate_uniqueness_of(:email).case_insensitive
+    should validate_uniqueness_of(:phone).case_insensitive
 
     should have_one(:enqueue)
   end
