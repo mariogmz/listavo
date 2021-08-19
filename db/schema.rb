@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_224308) do
+ActiveRecord::Schema.define(version: 2021_08_19_054700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_224308) do
   create_table "enqueues", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "patient_id", null: false
-    t.datetime "booked_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "booked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["patient_id"], name: "index_enqueues_on_patient_id"
@@ -58,7 +58,10 @@ ActiveRecord::Schema.define(version: 2021_08_11_224308) do
     t.integer "notification_days", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "invite_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["invite_token"], name: "index_users_on_invite_token", unique: true
+    t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

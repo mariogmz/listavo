@@ -1,0 +1,12 @@
+.w-75.mx-auto
+  %h2= t(".your_invite_link")
+
+  .input-group.my-3{ "data-controller": "clipboard"}
+    = button_tag :copy,
+        type: "button",
+        class: "btn btn-outline-secondary",
+        "data-clipboard-target": "tooltip",
+        "data-action": "clipboard#copy",
+        title: t("tooltips.copied") do
+      %i.bi.bi-clipboard
+    = text_field_tag(:invite_link, @invite_link, readonly: true, class: "form-control", "data-clipboard-target": "source")

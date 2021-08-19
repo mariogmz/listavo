@@ -31,3 +31,20 @@
 
 en:
   hello: "Hello world"
+  routes:
+    enqueues: book-appointment
+  tooltips:
+    copied: Copied!
+  invite_links:
+    show:
+      your_invite_link: Your invite link is
+  appointments:
+    new_appointment: Book and appointment
+    new:
+      instructions_html: Please fill in your contact info to book an appointment with <strong>%{name}</strong>, you will be contacted soon to confirm your appointment.
+    thanks:
+      success: Thank you! You will be contacted soon.
+  shifts:
+    morning: Morning
+    afternoon: Afternoon
+    evening: Evening

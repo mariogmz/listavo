@@ -6,5 +6,12 @@ module ApplicationHelper
   end.tap do |hash|
     hash["alert"] = "danger"
     hash["notice"] = "primary"
+    hash["error"] = "danger"
+  end
+
+  def shifts_options
+    Patient.shifts.keys.map do |shift|
+      [I18n.t("shifts.#{shift}"), Patient.shifts[shift]]
+    end
   end
 end

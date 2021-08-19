@@ -272,3 +272,20 @@ es-MX:
       sign_out: Cerrar sesión
     search:
       label: Busca algo
+  routes:
+    enqueues: citas
+  tooltips:
+    copied: ¡Copiado!
+  invite_links:
+    show:
+      your_invite_link: Tu liga de citas es
+  appointments:
+    new_appointment: Agendar cita
+    new:
+      instructions_html: Por favor ingrese su información para agendar con <strong>%{name}</strong>, en breve se pondrá en contacto con usted para confirmar fecha y hora de su consulta.
+    thanks:
+      success: Gracias por dejar tus datos, en breve se te contactará.
+  shifts:
+    morning: Mañana
+    afternoon: Tarde
+    evening: Noche

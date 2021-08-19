@@ -22,4 +22,10 @@ Rails.application.routes.draw do
     passwords: "users/passwords",
     registrations: "users/registrations",
   }
+
+  scope "/#{I18n.t("routes.enqueues")}/:invite_token", as: :patients do
+    resources :appointments, path: "", only: [:new, :create]
+  end
+
+  resource :invite_link, only: [:show]
 end

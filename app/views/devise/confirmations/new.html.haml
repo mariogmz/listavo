@@ -1,10 +1,10 @@
-%h2= t('.resend_confirmation_instructions')
-= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
-  .actions
-    = f.submit t('.resend_confirmation_instructions')
-= render "devise/shared/links"
+.mw-500.mx-auto
+  %h2.text-center.text-sm-start= t('.resend_confirmation_instructions')
+  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }, builder: BootstrapBuilder) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      = f.label :email
+      = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+    .actions.text-center.text-sm-start
+      = f.submit t('.resend_confirmation_instructions')
+  = render "devise/shared/links"
