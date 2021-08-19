@@ -1,8 +1,12 @@
 !!!
-%html
+%html{ lang: "es-MX"}
   %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    :css
-      /* Email styles need to be inline */
-  %body
-    = yield
+    %meta{ content: "text/html; charset=utf-8", "http-equiv" => "Content-Type" }/
+    %meta{ name: "x-apple-disable-message-reformatting" }/
+    %meta{ content: "ie=edge", "http-equiv" => "x-ua-compatible" }/
+    %meta{ content: "width=device-width, initial-scale=1", :name => "viewport" }/
+    %meta{ content: "telephone=no, date=no, address=no, email=no", :name => "format-detection" }/
+  %body.bg-light
+    .container
+      .card.ax-center.ay-center.my-10
+        .card-body.p-5= yield

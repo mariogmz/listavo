@@ -12,7 +12,8 @@ class AppointmentsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
 
-    if @patient.save && @user.enqueues.create(patient: @patient)
+    if @patient.save && enqueue = @user.enqueues.create(patient: @patient)
+      EnqueueMailer.new_patient_email(enqueue).deliver_later
       render "thanks"
     else
       flash[:error] = @patient.errors.full_messages.join("\n")

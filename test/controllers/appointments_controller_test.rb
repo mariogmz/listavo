@@ -21,6 +21,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
       post patients_appointments_url(invite_token: @user.invite_token), params: { patient: patient_params }
     end
 
+    assert_enqueued_emails(1)
     assert_response :success
   end
 

@@ -20,6 +20,7 @@ module Listavo
     #
     config.time_zone = "Guadalajara"
     config.i18n.default_locale = :"es-MX"
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**/*.{rb,yml}")]
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

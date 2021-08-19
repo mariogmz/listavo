@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   end
 
   resource :invite_link, only: [:show]
+
+  resources :enqueues, as: "appointments"
 end

@@ -1,0 +1,11 @@
+---
+es-MX:
+  enqueue_mailer:
+    new_patient_email:
+      subject: "%{name} se ha registrado en tu lista de espera."
+      greeting: Hola, %{name}
+      patient_info_html: |
+        Se te informa que <strong>%{name}</strong> se ha registrado en tu lista de espera para poder
+        concretar una cita, recuerda contactarlo(a) y agendar antes del <strong>%{date}</strong>
+        al teléfono <strong>%{phone}</strong>.
+      check_your_appointments: Verifica tus citas

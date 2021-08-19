@@ -20,6 +20,7 @@ gem "administrate"
 
 gem "haml"
 gem "haml-rails"
+gem "bootstrap-email", ">= 1.0.0.alpha"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
