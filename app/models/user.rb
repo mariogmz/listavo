@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates_presence_of :email, :name, :phone, :notification_days
   validates_uniqueness_of :email, :phone, case_sensitive: false
   validates_uniqueness_of :invite_token
+  validates_numericality_of :notification_days, only_integer: true, greater_than_or_equal_to: 0
 
   has_secure_token :invite_token
 

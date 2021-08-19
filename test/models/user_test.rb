@@ -21,6 +21,7 @@ class UserTest < ActiveSupport::TestCase
     should validate_uniqueness_of(:email).ignoring_case_sensitivity
     should validate_uniqueness_of(:phone).ignoring_case_sensitivity
     should validate_uniqueness_of(:invite_token).ignoring_case_sensitivity
+    should validate_numericality_of(:notification_days).only_integer.is_greater_than_or_equal_to(0)
     should have_many(:enqueues)
     should have_many(:patients)
   end
