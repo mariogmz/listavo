@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   }
 
   scope "/#{I18n.t("routes.enqueues")}/:invite_token", as: :patients do
-    resources :enqueues, path: "", only: [:new, :create]
+    resources :appointments, path: "", only: [:new, :create]
   end
 
   resource :invite_link, only: [:show]

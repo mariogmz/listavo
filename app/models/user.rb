@@ -19,6 +19,6 @@ class User < ApplicationRecord
 
   def invite_link
     regenerate_invite_token if invite_token.nil?
-    new_patients_enqueue_url(invite_token: invite_token)
+    new_patients_appointment_url(invite_token: reload.invite_token)
   end
 end

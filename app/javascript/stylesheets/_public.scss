@@ -1,0 +1,27 @@
+body.public {
+  @extend .text-white;
+  background-color: $pink-600;
+
+  .content {
+    max-width: 52em;
+  }
+
+  input,
+  select {
+    max-width: 38em;
+  }
+
+  [type="submit"] {
+    background-color: $pink-600;
+    border-color: $pink-600;
+  }
+
+  main {
+    font-size: 1.2rem;
+    max-width: 28em;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1.5rem;
+    }
+  }
+}

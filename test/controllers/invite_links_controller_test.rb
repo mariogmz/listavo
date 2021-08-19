@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "test_helper"
+
 class InviteLinksControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:user)

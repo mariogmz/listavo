@@ -38,3 +38,9 @@ en:
   invite_links:
     show:
       your_invite_link: Your invite link is
+  appointments:
+    new_appointment: Book and appointment
+  shifts:
+    morning: Morning
+    afternoon: Afternoon
+    evening: Evening

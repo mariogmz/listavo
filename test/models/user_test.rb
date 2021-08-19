@@ -26,6 +26,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "#invite_link" do
-    assert_equal(new_patients_enqueue_url(invite_token: subject.invite_token), subject.invite_link)
+    subject.update(invite_token: nil)
+    link = subject.invite_link
+    assert_equal(new_patients_appointment_url(invite_token: subject.invite_token), link)
   end
 end

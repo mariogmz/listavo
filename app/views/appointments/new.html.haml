@@ -1,0 +1,16 @@
+%p= t(".instructions_html", name: @user.name)
+= form_for(@patient, url: patients_appointments_path(invite_token: @invite_token), builder: BootstrapBuilder) do |f|
+  .field
+    = f.label :name
+    = f.text_field :name, required: true
+  .field
+    = f.label :phone
+    = f.telephone_field :phone, required: true, placeholder: "XXX-XXX-XXXX"
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :shift
+    = select_tag(:shift, options_for_select(shifts_options), required: true, class: "form-select")
+  .actions.text-center.mt-4.mt-md-5
+    = f.submit t("appointments.new_appointment"), class: "btn btn-primary btn-lg"
