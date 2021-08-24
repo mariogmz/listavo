@@ -273,7 +273,9 @@ es-MX:
     search:
       label: Busca algo
   routes:
+    patient_enqueues: agendar
     enqueues: citas
+    patients: pacientes
   tooltips:
     copied: ¡Copiado!
   invite_links:

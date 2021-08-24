@@ -23,11 +23,12 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
   }
 
-  scope "/#{I18n.t("routes.enqueues")}/:invite_token", as: :patients do
+  scope "/#{I18n.t("routes.patient_enqueues")}/:invite_token", as: :patients do
     resources :appointments, path: "", only: [:new, :create]
   end
 
   resource :invite_link, only: [:show]
 
-  resources :enqueues, as: "appointments"
+  resources :enqueues, as: "appointments", only: [:index], path: I18n.t("routes.enqueues")
+  resources :patients, only: [:show], path: I18n.t("routes.patients")
 end

@@ -1,0 +1,16 @@
+---
+es-MX:
+  enqueues:
+    index:
+      title: Lista de citas
+      table:
+        headers:
+          patient_name: Nombre
+          patient_phone: Teléfono
+          patient_email: Email
+          booked_at: ¿Agendado?
+          actions: Acciones
+        actions:
+          book: Agendar
+          unbook: Cancelar cita
+          patient: Ver paciente
