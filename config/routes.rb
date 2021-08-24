@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
       root to: "admins#index"
     end
-  root to: "application#index"
+
+  root to: "enqueues#index"
 
   devise_for :admins, path: "admin", controllers: {
     sessions: "admins/sessions",
@@ -29,6 +30,6 @@ Rails.application.routes.draw do
 
   resource :invite_link, only: [:show]
 
-  resources :enqueues, as: "appointments", only: [:index], path: I18n.t("routes.enqueues")
+  resources :enqueues, as: "appointments", only: [:index, :destroy], path: I18n.t("routes.enqueues")
   resources :patients, only: [:show], path: I18n.t("routes.patients")
 end

@@ -18,21 +18,22 @@
           %td= appointment.patient.shift
           %td= appointment.booked_at.present? ? l(appointment.booked_at.to_date) : "No"
           %td
-            = button_tag(:book,
-                type: "button",
+            = link_to(appointment.patient,
                 class: "btn btn-primary me-3",
                 "data-bs-toggle": "tooltip",
                 title: t(".table.actions.patient")) do
-              %i.bi.bi-person-fill
+              %i.bi.bi-person-lines-fill
             - if appointment.booked_at.nil?
-              = button_tag(:unbook,
+              = link_to(appointment_path(appointment),
+                  method: "DELETE",
                   type: "button",
                   class: "btn btn-danger",
                   "data-bs-toggle": "tooltip",
                   title: t(".table.actions.unbook")) do
-                %i.bi.bi-calendar-x
+                %i.bi.bi-person-x-fill
             - else
-              = button_tag(:book,
+              = link_to(appointment_path(appointment),
+                  method: "PUT",
                   type: "button",
                   class: "btn btn-success",
                   "data-bs-toggle": "tooltip",

@@ -14,3 +14,6 @@ es-MX:
           book: Agendar
           unbook: Cancelar cita
           patient: Ver paciente
+    destroy:
+      success: El paciente ha sido eliminado de la lista de espera
+      error: No se ha podido eliminar al paciente de la lista
