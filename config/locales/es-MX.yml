@@ -33,6 +33,11 @@ es-MX:
         name: Nombre
         phone: Teléfono
         shift: Turno
+        shifts:
+          morning: Mañana
+          afternoon: Tarde
+          evening: Noche
+          saturday: Sabatino
         created_at: Fecha de alta
         updated_at: Fecha de actualización
         enqueue: ¿En lista de espera?
@@ -255,6 +260,7 @@ es-MX:
       default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
       long: "%A, %d de %B de %Y a las %I:%M %p"
       short: "%d de %b a las %H:%M hrs"
+      compact: "%e/%-m/%Y"
     pm: pm
   administrator:
     admins:

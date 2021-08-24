@@ -30,6 +30,6 @@ Rails.application.routes.draw do
 
   resource :invite_link, only: [:show]
 
-  resources :enqueues, as: "appointments", only: [:index, :destroy], path: I18n.t("routes.enqueues")
+  resources :enqueues, as: "appointments", only: [:index, :update, :destroy], path: I18n.t("routes.enqueues")
   resources :patients, only: [:show], path: I18n.t("routes.patients")
 end

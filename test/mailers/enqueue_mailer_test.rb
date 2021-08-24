@@ -5,6 +5,7 @@ require "test_helper"
 class EnqueueMailerTest < ActionMailer::TestCase
   setup do
     @enqueue = enqueues(:patient1)
+    @enqueue.booked_at = nil
   end
 
   test "#new_patient_email" do

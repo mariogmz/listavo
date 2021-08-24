@@ -7,8 +7,19 @@ class EnqueuesController < ApplicationController
     @appointments = current_user.enqueues.includes(:patient)
   end
 
+  def update
+    enqueue = current_user.enqueues.find(enqueue_id)
+
+    flash[:success] = t(".snoozed") if snooze? && enqueue.snooze!
+    flash[:success] = t(".booked") if book? && enqueue.book!
+
+    flash[:error] = t(".error") if flash[:success].nil?
+
+    redirect_to(appointments_path)
+  end
+
   def destroy
-    if current_user.enqueues.find_by(id: params[:id]).try(:destroy)
+    if current_user.enqueues.find_by(id: enqueue_id).try(:destroy)
       flash[:success] = t(".success")
     else
       flash[:error] = t(".error")
@@ -16,4 +27,18 @@ class EnqueuesController < ApplicationController
 
     redirect_to(appointments_path)
   end
+
+  private
+
+    def enqueue_id
+      params[:id]
+    end
+
+    def snooze?
+      params[:snooze].present?
+    end
+
+    def book?
+      params[:book].present?
+    end
 end

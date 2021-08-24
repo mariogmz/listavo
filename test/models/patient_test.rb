@@ -13,6 +13,7 @@ class PatientTest < ActiveSupport::TestCase
       morning: 0,
       afternoon: 1,
       evening: 2,
+      saturday: 3,
     ).with_prefix(true)
     should validate_uniqueness_of(:email).case_insensitive
     should validate_uniqueness_of(:phone).case_insensitive

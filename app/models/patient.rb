@@ -5,6 +5,7 @@ class Patient < ApplicationRecord
     morning: 0,
     afternoon: 1,
     evening: 2,
+    saturday: 3,
   }, _prefix: true
 
   validates_presence_of :name, :phone, :shift

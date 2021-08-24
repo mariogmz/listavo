@@ -9,11 +9,18 @@ es-MX:
           patient_phone: Teléfono
           patient_email: Email
           booked_at: ¿Agendado?
+          shift: Turno
+          due_date: Notificar el
           actions: Acciones
         actions:
-          book: Agendar
-          unbook: Cancelar cita
           patient: Ver paciente
+          book: Agendar
+          snooze: Recordar después
+          delete: Eliminar
+    update:
+      snoozed: El recordatorio se ha aplazado para después
+      booked: Se ha marcado al paciente como agendado
+      error: No se ha podido actualizar al paciente en la lista
     destroy:
       success: El paciente ha sido eliminado de la lista de espera
       error: No se ha podido eliminar al paciente de la lista
