@@ -3,12 +3,15 @@ es-MX:
   enqueues:
     index:
       title: Lista de citas
+      no_pending: No tienes pacientes en lista de espera
+      booked_title: Agendados
       table:
         headers:
           patient_name: Nombre
           patient_phone: Teléfono
           patient_email: Email
           booked_at: ¿Agendado?
+          booked_at_date: Agendado el
           shift: Turno
           due_date: Notificar el
           actions: Acciones

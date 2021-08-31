@@ -4,7 +4,9 @@ class EnqueuesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @appointments = current_user.enqueues.includes(:patient)
+    appointments = current_user.enqueues.includes(:patient)
+    @booked = appointments.booked
+    @pending = appointments - @booked
   end
 
   def update

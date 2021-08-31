@@ -1,47 +1,99 @@
 %h1= t(".title")
 
-.table-responsive
-  %table.table.table-striped.table-hover
-    %thead
-      %th{ scope: "col" } #
-      - Enqueue::TABLE_HEADERS.each do |header|
-        %th{ scope: "col" }= t(".table.headers.#{header}")
-      %th{ scope: "col" }= t(".table.headers.actions")
-    %tbody
-      - @appointments.each do |appointment|
-        %tr{ scope: "row", class: (appointment.due? ? "table-danger" : "")}
-          %td= appointment.id
-          %td= appointment.patient.name
-          %td= appointment.patient.phone
-          %td= appointment.patient.email
-          %td= t("activerecord.attributes.patient.shifts.#{appointment.patient.shift}")
-          %td= appointment.booked_at.nil? ? l(appointment.next_notification_date, format: :compact) : ""
-          %td
-            - if appointment.due?
-              = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
-                = f.hidden_field(:snooze, value: true)
-                = button_tag(type: "submit",
-                    class: "btn btn-warning shake me-3",
-                    "data-bs-toggle": "tooltip",
-                    title: t(".table.actions.snooze")) do
-                  %i.bi.bi-alarm-fill
-            - if appointment.booked_at.nil?
-              = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
-                = f.hidden_field(:book, value: true)
-                = button_tag(type: "submit",
-                    class: "btn btn-success me-3",
-                    "data-bs-toggle": "tooltip",
-                    title: t(".table.actions.book")) do
-                  %i.bi.bi-calendar-plus
-            = link_to(appointment.patient,
-                class: "btn btn-primary me-3",
-                "data-bs-toggle": "tooltip",
-                title: t(".table.actions.patient")) do
-              %i.bi.bi-person-lines-fill
-            = link_to(appointment_path(appointment),
-                method: "DELETE",
-                type: "button",
-                class: "btn btn-danger",
-                "data-bs-toggle": "tooltip",
-                title: t(".table.actions.delete")) do
-              %i.bi.bi-person-x-fill
+- if @pending.any?
+  .table-responsive
+    %table.table.table-striped.table-hover
+      %thead
+        %th{ scope: "col" } #
+        - Enqueue::TABLE_HEADERS.each do |header|
+          %th{ scope: "col" }= t(".table.headers.#{header}")
+        %th{ scope: "col" }= t(".table.headers.actions")
+      %tbody
+        - @pending.each do |appointment|
+          %tr{ scope: "row", class: (appointment.due? ? "table-danger" : "")}
+            %td= appointment.id
+            %td= appointment.patient.name
+            %td= appointment.patient.phone
+            %td= appointment.patient.email
+            %td= t("activerecord.attributes.patient.shifts.#{appointment.patient.shift}")
+            %td= appointment.booked_at.nil? ? l(appointment.next_notification_date, format: :compact) : ""
+            %td
+              - if appointment.due?
+                = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
+                  = f.hidden_field(:snooze, value: true)
+                  = button_tag(type: "submit",
+                      class: "btn btn-warning shake me-3",
+                      "data-bs-toggle": "tooltip",
+                      title: t(".table.actions.snooze")) do
+                    %i.bi.bi-alarm-fill
+              - if appointment.booked_at.nil?
+                = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
+                  = f.hidden_field(:book, value: true)
+                  = button_tag(type: "submit",
+                      class: "btn btn-success me-3",
+                      "data-bs-toggle": "tooltip",
+                      title: t(".table.actions.book")) do
+                    %i.bi.bi-calendar-plus
+              = link_to(appointment.patient,
+                  class: "btn btn-primary me-3",
+                  "data-bs-toggle": "tooltip",
+                  title: t(".table.actions.patient")) do
+                %i.bi.bi-person-lines-fill
+              = link_to(appointment_path(appointment),
+                  method: "DELETE",
+                  type: "button",
+                  class: "btn btn-danger",
+                  "data-bs-toggle": "tooltip",
+                  title: t(".table.actions.delete")) do
+                %i.bi.bi-person-x-fill
+- else
+  %h2.text-center.my-5= t(".no_pending")
+
+- if @booked.any?
+  %hr
+  %h2= t(".booked_title")
+  .table-responsive
+    %table.table.table-striped.table-hover
+      %thead
+        %th{ scope: "col" } #
+        - (Enqueue::TABLE_HEADERS - %w(shift due_date)).each do |header|
+          %th{ scope: "col" }= t(".table.headers.#{header}")
+        %th{ scope: "col" }= t(".table.headers.booked_at_date")
+        %th{ scope: "col" }= t(".table.headers.actions")
+      %tbody
+        - @booked.each do |appointment|
+          %tr{ scope: "row"}
+            %td= appointment.id
+            %td= appointment.patient.name
+            %td= appointment.patient.phone
+            %td= appointment.patient.email
+            %td= l(appointment.booked_at, format: :compact)
+            %td
+              - if appointment.due?
+                = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
+                  = f.hidden_field(:snooze, value: true)
+                  = button_tag(type: "submit",
+                      class: "btn btn-warning shake me-3",
+                      "data-bs-toggle": "tooltip",
+                      title: t(".table.actions.snooze")) do
+                    %i.bi.bi-alarm-fill
+              - if appointment.booked_at.nil?
+                = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
+                  = f.hidden_field(:book, value: true)
+                  = button_tag(type: "submit",
+                      class: "btn btn-success me-3",
+                      "data-bs-toggle": "tooltip",
+                      title: t(".table.actions.book")) do
+                    %i.bi.bi-calendar-plus
+              = link_to(appointment.patient,
+                  class: "btn btn-primary me-3",
+                  "data-bs-toggle": "tooltip",
+                  title: t(".table.actions.patient")) do
+                %i.bi.bi-person-lines-fill
+              = link_to(appointment_path(appointment),
+                  method: "DELETE",
+                  type: "button",
+                  class: "btn btn-danger",
+                  "data-bs-toggle": "tooltip",
+                  title: t(".table.actions.delete")) do
+                %i.bi.bi-person-x-fill
