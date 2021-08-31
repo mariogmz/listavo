@@ -1,0 +1,20 @@
+%h3.mb-3= t(".greeting", name: @user.name).concat(":")
+%p= t(".copy") + ":"
+%table.table.table-stripped.thead-default.table-bordered.my-5
+  %thead
+    %th
+      %span.px-2=t(".table.headers.name")
+    %th
+      %span.px-2=t(".table.headers.phone")
+    %th
+      %span.px-2=t(".table.headers.updated_at")
+  %tbody
+    - @enqueues.each do |enqueue|
+      %tr
+        %td= enqueue.patient.name
+        %td= enqueue.patient.phone
+        %td= l(enqueue.updated_at, format: :short)
+
+.text-center
+  = link_to appointments_url, class: "btn btn-secondary" do
+    = t(".see_enqueues")

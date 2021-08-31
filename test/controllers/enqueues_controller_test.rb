@@ -15,7 +15,8 @@ class EnqueuesControllerTest < ActionDispatch::IntegrationTest
     get appointments_url
 
     assert_response(:success)
-    assert_not_nil(assigns[:appointments])
+    assert_not_nil(assigns[:booked])
+    assert_not_nil(assigns[:pending])
   end
 
   test "#update: snooze" do

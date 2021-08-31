@@ -9,3 +9,13 @@ es-MX:
         concretar una cita, recuerda contactarlo(a) y agendar antes del <strong>%{date}</strong>
         al teléfono <strong>%{phone}</strong>.
       check_your_appointments: Verifica tus citas
+    notify_patient_dues_email:
+      subject: "Tu informe de pacientes en lista de espera."
+      greeting: Hola, %{name}
+      copy: Este es tu informe de pacientes en lista de espera
+      table:
+        headers:
+          name: Nombre
+          phone: Teléfono
+          updated_at: Solicitó lugar el
+      see_enqueues: Ver pacientes en lista de espera

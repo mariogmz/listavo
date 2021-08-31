@@ -7,6 +7,7 @@ class Enqueue < ApplicationRecord
   belongs_to :patient, inverse_of: :enqueue, dependent: :destroy
 
   scope :booked, -> { where.not(booked_at: nil) }
+  scope :pending, -> { where(booked_at: nil) }
 
   def next_notification_date
     return nil if booked_at.present?

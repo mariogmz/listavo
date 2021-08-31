@@ -22,4 +22,8 @@ class User < ApplicationRecord
     regenerate_invite_token if invite_token.nil?
     new_patients_appointment_url(invite_token: reload.invite_token)
   end
+
+  def patients_to_book
+    enqueues.includes(:patient).select(&:due?)
+  end
 end

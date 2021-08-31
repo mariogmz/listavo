@@ -4,4 +4,10 @@ class EnqueueMailerPreview < ActionMailer::Preview
     enqueue = Enqueue.first
     EnqueueMailer.new_patient_email(enqueue)
   end
+
+  def notify_patient_dues_email
+    user = User.first
+
+    EnqueueMailer.notify_patient_dues_email(user)
+  end
 end
