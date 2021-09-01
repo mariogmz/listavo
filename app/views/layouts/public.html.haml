@@ -8,10 +8,8 @@
     = csp_meta_tag
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-  %body.public.d-flex.flex-column.px-3
+  %body.public.d-flex.flex-column.px-3.bg-light
     = render "partials/flash"
-    %header.container.my-3.text-center
-      %h1= t("appointments.new_appointment")
-    %main.container.p-3.p-md-5.bg-light.text-body.rounded.shadow
+    %main.container.mt-5.p-3.p-md-5.bg-white.text-body.rounded.shadow
       = yield
     %footer

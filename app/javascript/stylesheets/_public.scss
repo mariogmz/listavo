@@ -1,7 +1,4 @@
 body.public {
-  @extend .text-white;
-  background-color: $pink-600;
-
   .content {
     max-width: 52em;
   }
@@ -9,11 +6,6 @@ body.public {
   input,
   select {
     max-width: 38em;
-  }
-
-  [type="submit"] {
-    background-color: $pink-600;
-    border-color: $pink-600;
   }
 
   main {

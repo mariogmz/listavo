@@ -1,10 +1,10 @@
-.w-75.mx-auto
+.w-75.mx-auto.pt-5
   %h2= t(".your_invite_link")
 
-  .input-group.my-3{ "data-controller": "clipboard"}
+  .input-group.my-3{ "data-controller": "clipboard" }
     = button_tag :copy,
         type: "button",
-        class: "btn btn-outline-secondary",
+        class: "btn btn-secondary",
         "data-clipboard-target": "tooltip",
         "data-action": "clipboard#copy",
         title: t("tooltips.copied") do
