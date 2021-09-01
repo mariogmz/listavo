@@ -1,0 +1,7 @@
+---
+
+:enabled: true
+:schedule:
+  hello_world:
+    cron: "0 8 * * *"
+    class: NotifyUsersPendingPatientsJob

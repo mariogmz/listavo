@@ -31,4 +31,17 @@ class UserTest < ActiveSupport::TestCase
     link = subject.invite_link
     assert_equal(new_patients_appointment_url(invite_token: subject.invite_token), link)
   end
+
+  test "#patients_to_book" do
+    enqueue = subject.enqueues.first
+    enqueue.update(
+      booked_at: nil,
+      updated_at: enqueue.updated_at - (subject.notification_days + 1).days
+    )
+
+    result = subject.patients_to_book
+    assert_kind_of(Array, result)
+    assert_not_empty(result)
+    assert_includes(result, enqueue)
+  end
 end

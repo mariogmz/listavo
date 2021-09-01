@@ -22,6 +22,9 @@ gem "haml"
 gem "haml-rails"
 gem "bootstrap-email", ">= 1.0.0.alpha"
 
+gem "sidekiq", "~> 6.0"
+gem "sidekiq-scheduler"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
