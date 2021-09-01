@@ -1,0 +1,9 @@
+%aside.sidebar.flex-shrink-9.bg-light.shadow.p-1
+  = link_to root_path, class: "sidebar-item" do
+    %i.bi.bi-house-fill
+  = link_to edit_user_registration_path, class: "sidebar-item" do
+    %i.bi.bi-person-circle
+  = link_to invite_link_path, class: "sidebar-item" do
+    %i.bi.bi-link
+  = link_to destroy_user_session_path, method: :delete, class: "sidebar-item bg-light sidebar-end-item" do
+    %i.bi.bi-box-arrow-in-right

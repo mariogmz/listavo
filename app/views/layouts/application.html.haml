@@ -10,5 +10,7 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
     = render "partials/flash"
-    .container.p-3
-      = yield
+    = render "partials/sidebar"
+    .main
+      .container.px-3.py-5
+        = yield

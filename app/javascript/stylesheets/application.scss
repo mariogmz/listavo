@@ -21,6 +21,62 @@ tr {
   animation: shake-animation 4s ease infinite;
 }
 
+.main {
+  @include media-breakpoint-up(lg) {
+    margin-left: 4.5rem;
+  }
+}
+
+aside.sidebar {
+  align-items: center;
+  display: flex;
+  height: 3.5rem;
+  width: 100%;
+
+  .sidebar-item {
+    @extend .link-dark;
+
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 26px;
+    text-align: center;
+    text-decoration: none;
+
+    &:not(:last-child) {
+      @extend .border-dark;
+      border-style: solid;
+      border-width: 0 1px 0 0;
+
+      @include media-breakpoint-up(lg) {
+        border-width: 0 0 1px 0;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      flex-grow: 0;
+      font-size: 32px;
+      padding: 1rem;
+    }
+  }
+
+  .sidebar-end-item {
+    @include media-breakpoint-up(lg) {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: column;
+    height: 100vh;
+    position: absolute;
+    padding-bottom: 80px;
+    width: 4.5rem;
+  }
+}
+
 @keyframes shake-animation {
    0% { transform:translate(0,0) }
   1.78571% { transform:translate(5px,0) }
