@@ -17,12 +17,14 @@ es-MX:
           actions: Acciones
         actions:
           patient: Ver paciente
-          book: Agendar
+          book: Marcar como agendado
+          unbook: Marcar como no agendado
           snooze: Recordar después
           delete: Eliminar
     update:
       snoozed: El recordatorio se ha aplazado para después
       booked: Se ha marcado al paciente como agendado
+      unbooked: Se ha marcado al paciente como no agendado
       error: No se ha podido actualizar al paciente en la lista
     destroy:
       success: El paciente ha sido eliminado de la lista de espera

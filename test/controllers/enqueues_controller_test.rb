@@ -22,6 +22,7 @@ class EnqueuesControllerTest < ActionDispatch::IntegrationTest
   test "#update: snooze" do
     Enqueue.any_instance.expects(:snooze!).returns(true).once
     Enqueue.any_instance.expects(:book!).never
+    Enqueue.any_instance.expects(:unbook!).never
 
     put appointment_url(@enqueue, params: { snooze: true })
 
@@ -32,12 +33,25 @@ class EnqueuesControllerTest < ActionDispatch::IntegrationTest
 
   test "#update: book" do
     Enqueue.any_instance.expects(:snooze!).never
+    Enqueue.any_instance.expects(:unbook!).never
     Enqueue.any_instance.expects(:book!).returns(true).once
 
     put appointment_url(@enqueue, params: { book: true })
 
     assert_nil(flash[:error])
     assert_equal(I18n.t("enqueues.update.booked"), flash[:success])
+    assert_redirected_to(appointments_url)
+  end
+
+  test "#update: unbook" do
+    Enqueue.any_instance.expects(:snooze!).never
+    Enqueue.any_instance.expects(:book!).never
+    Enqueue.any_instance.expects(:unbook!).returns(true).once
+
+    put appointment_url(@enqueue, params: { unbook: true })
+
+    assert_nil(flash[:error])
+    assert_equal(I18n.t("enqueues.update.unbooked"), flash[:success])
     assert_redirected_to(appointments_url)
   end
 
