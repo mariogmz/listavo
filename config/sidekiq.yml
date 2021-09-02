@@ -2,6 +2,6 @@
 
 :enabled: true
 :schedule:
-  hello_world:
+  notify_pending_patients:
     cron: "0 8 * * *"
     class: NotifyUsersPendingPatientsJob
