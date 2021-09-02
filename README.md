@@ -1,24 +1,12 @@
-# README
+# Listavo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Create admin user first time the app boot
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```ruby
+Admin.create(
+  email: "admin@test.com",
+  name: "Super Admin",
+  password: "test123!",
+  password_confirmation: "test123!",
+)
+```

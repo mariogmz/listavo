@@ -21,8 +21,8 @@ class BootstrapBuilder < ActionView::Helpers::FormBuilder
     super(method, options.reverse_merge(class: "form-control"))
   end
 
-  def number_field(object_name, method, options = {})
-    super(object_name, method, options.reverse_merge(class: "form-control"))
+  def number_field(method, options = {})
+    super(method, options.reverse_merge(class: "form-control"))
   end
 
   def submit(value = nil, options = {})

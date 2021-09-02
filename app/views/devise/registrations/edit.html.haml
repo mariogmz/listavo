@@ -2,9 +2,13 @@
 
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, builder: BootstrapBuilder) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
+  .field.py-3
     = f.label :email
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    %p.fw-bold= resource.email
+  .field
+    = f.label :notification_days
+    = f.number_field :notification_days, min: 0, step: 1
+  %hr
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email)
   .field
@@ -17,6 +21,7 @@
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation, autocomplete: "new-password"
+  %hr
   .field
     = f.label :current_password
     %i
