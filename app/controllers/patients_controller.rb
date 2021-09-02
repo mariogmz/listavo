@@ -10,6 +10,6 @@ class PatientsController < ApplicationController
   private
 
     def set_patient
-      @patient = current_user.patients.find(params[:id])
+      @patient = current_user.patients.includes(:enqueue).find(params[:id])
     end
 end

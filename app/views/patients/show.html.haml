@@ -1,1 +1,25 @@
-= @patient.attributes
+%h1.mb-5= @patient.name
+
+%p.field
+  %span.fw-bold.me-2= Patient.human_attribute_name(:email) + ":"
+  %span= @patient.email.blank? ? "---" : @patient.email
+
+%p.field
+  %span.fw-bold.me-2= Patient.human_attribute_name(:phone) + ":"
+  %span= @patient.phone
+
+%p.field
+  %span.fw-bold.me-2= Patient.human_attribute_name(:shift) + ":"
+  %span= t("activerecord.attributes.patient.shifts.#{@patient.shift}")
+
+%p.field
+  %span.fw-bold.me-2= Enqueue.human_attribute_name(:booked_at) + ":"
+  %span= @patient.enqueue.booked_at.present? ? l(@patient.enqueue.booked_at, format: :long) : "---"
+
+%p.field
+  %span.fw-bold.me-2= Patient.human_attribute_name(:created_at) + ":"
+  %span= l(@patient.created_at, format: :long)
+
+%p.field
+  %span.fw-bold.me-2= Patient.human_attribute_name(:updated_at) + ":"
+  %span= l(@patient.updated_at, format: :long)
