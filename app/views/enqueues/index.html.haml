@@ -24,6 +24,7 @@
                   = button_tag(type: "submit",
                       class: "btn btn-warning shake me-3",
                       "data-bs-toggle": "tooltip",
+                      "data-bs-placement": "bottom",
                       title: t(".table.actions.snooze")) do
                     %i.bi.bi-alarm-fill
               - if appointment.booked_at.nil?
@@ -32,11 +33,13 @@
                   = button_tag(type: "submit",
                       class: "btn btn-success me-3",
                       "data-bs-toggle": "tooltip",
+                      "data-bs-placement": "bottom",
                       title: t(".table.actions.book")) do
                     %i.bi.bi-calendar-check-fill
               = link_to(appointment.patient,
                   class: "btn btn-primary me-3",
                   "data-bs-toggle": "tooltip",
+                  "data-bs-placement": "bottom",
                   title: t(".table.actions.patient")) do
                 %i.bi.bi-person-lines-fill
 - else
@@ -67,11 +70,13 @@
                 = button_tag(type: "submit",
                     class: "btn btn-info me-3",
                     "data-bs-toggle": "tooltip",
+                    "data-bs-placement": "bottom",
                     title: t(".table.actions.unbook")) do
                   %i.bi.bi-calendar-x-fill
               = link_to(appointment.patient,
                   class: "btn btn-primary me-3",
                   "data-bs-toggle": "tooltip",
+                  "data-bs-placement": "bottom",
                   title: t(".table.actions.patient")) do
                 %i.bi.bi-person-lines-fill
               = link_to(appointment_path(appointment),
@@ -79,5 +84,6 @@
                   type: "button",
                   class: "btn btn-danger",
                   "data-bs-toggle": "tooltip",
+                  "data-bs-placement": "bottom",
                   title: t(".table.actions.delete")) do
                 %i.bi.bi-person-x-fill
