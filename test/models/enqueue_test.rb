@@ -44,6 +44,11 @@ class EnqueueTest < ActiveSupport::TestCase
     assert_equal(now, enqueue.booked_at)
   end
 
+  test "#unbook!" do
+    enqueue.unbook!
+    assert_nil(enqueue.booked_at)
+  end
+
   test "#snooze!" do
     assert_changes ->{ enqueue.updated_at } do
       enqueue.snooze!

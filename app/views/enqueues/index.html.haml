@@ -33,19 +33,12 @@
                       class: "btn btn-success me-3",
                       "data-bs-toggle": "tooltip",
                       title: t(".table.actions.book")) do
-                    %i.bi.bi-calendar-plus
+                    %i.bi.bi-calendar-check-fill
               = link_to(appointment.patient,
                   class: "btn btn-primary me-3",
                   "data-bs-toggle": "tooltip",
                   title: t(".table.actions.patient")) do
                 %i.bi.bi-person-lines-fill
-              = link_to(appointment_path(appointment),
-                  method: "DELETE",
-                  type: "button",
-                  class: "btn btn-danger",
-                  "data-bs-toggle": "tooltip",
-                  title: t(".table.actions.delete")) do
-                %i.bi.bi-person-x-fill
 - else
   %h2.text-center.my-5= t(".no_pending")
 
@@ -69,22 +62,13 @@
             %td= appointment.patient.email
             %td= l(appointment.booked_at, format: :compact)
             %td
-              - if appointment.due?
-                = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
-                  = f.hidden_field(:snooze, value: true)
-                  = button_tag(type: "submit",
-                      class: "btn btn-warning shake me-3",
-                      "data-bs-toggle": "tooltip",
-                      title: t(".table.actions.snooze")) do
-                    %i.bi.bi-alarm-fill
-              - if appointment.booked_at.nil?
-                = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
-                  = f.hidden_field(:book, value: true)
-                  = button_tag(type: "submit",
-                      class: "btn btn-success me-3",
-                      "data-bs-toggle": "tooltip",
-                      title: t(".table.actions.book")) do
-                    %i.bi.bi-calendar-plus
+              = form_with(url: appointment_path(appointment), method: "PUT", class: "d-inline-block") do |f|
+                = f.hidden_field(:unbook, value: true)
+                = button_tag(type: "submit",
+                    class: "btn btn-info me-3",
+                    "data-bs-toggle": "tooltip",
+                    title: t(".table.actions.unbook")) do
+                  %i.bi.bi-calendar-x-fill
               = link_to(appointment.patient,
                   class: "btn btn-primary me-3",
                   "data-bs-toggle": "tooltip",

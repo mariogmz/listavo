@@ -22,7 +22,13 @@ class Enqueue < ApplicationRecord
   end
 
   def book!
-    update!(booked_at: Time.current)
+    self.booked_at = Time.current
+    save!(touch: false)
+  end
+
+  def unbook!
+    self.booked_at = nil
+    save!(touch: false)
   end
 
   def snooze!
