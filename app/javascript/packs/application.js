@@ -13,11 +13,13 @@ const application = Application.start();
 const context = require.context("../controllers", true, /\.js$/);
 application.load(definitionsFromContext(context));
 
-document.addEventListener("DOMContentLoaded", () => {
-  const tooltips = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  for(let tooltip of tooltips) {
-    new Bootstrap.Tooltip(tooltip);
-  }
+["turbolinks:load", "DOMContentLoaded"].forEach((event) => {
+  document.addEventListener(event, () => {
+    const tooltips = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    for(let tooltip of tooltips) {
+      new Bootstrap.Tooltip(tooltip);
+    }
+  });
 });
 
 import "bootstrap-icons/font/bootstrap-icons.css";
