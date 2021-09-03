@@ -10,10 +10,8 @@ class UsersWithPendingPatientsJob < ApplicationJob
   private
 
     def users_ids
-      Enqueue.includes(:user).pending.map do |enqueue|
-        next enqueue.user.id if enqueue.due?
-
-        nil
-      end.uniq
+      Enqueue.pending.map do |enqueue|
+        next enqueue.user_id if enqueue.due?
+      end.uniq.compact
     end
 end
