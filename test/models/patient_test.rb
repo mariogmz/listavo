@@ -11,9 +11,8 @@ class PatientTest < ActiveSupport::TestCase
     should validate_presence_of(:shift)
     should define_enum_for(:shift).with_values(
       morning: 0,
-      afternoon: 1,
-      evening: 2,
-      saturday: 3,
+      evening: 1,
+      saturday: 2,
     ).with_prefix(true)
     should validate_uniqueness_of(:email).case_insensitive
     should validate_uniqueness_of(:phone).case_insensitive

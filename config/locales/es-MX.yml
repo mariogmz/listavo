@@ -34,9 +34,8 @@ es-MX:
         phone: Teléfono
         shift: Turno
         shifts:
-          morning: Mañana
-          afternoon: Tarde
-          evening: Noche
+          morning: Matutino
+          evening: Vespertino
           saturday: Sabatino
         created_at: Fecha de alta
         updated_at: Fecha de actualización
@@ -288,13 +287,16 @@ es-MX:
     show:
       your_invite_link: Tu liga de citas es
   appointments:
-    new_appointment: Agendar cita
+    new_appointment: Confirmar turno
     new:
-      instructions_html: Por favor ingrese su información para agendar con <strong>%{name}</strong>, en breve se pondrá en contacto con usted para confirmar fecha y hora de su consulta.
+      instructions_html: |
+        Por favor ingrese su información para solicitar turno en
+        lista de espera para agendar una cita con <strong>%{name}</strong>,
+        en breve se pondrá en contacto con usted para confirmar fecha y hora
+        de su consulta.
     thanks:
-      success: Gracias por dejar tus datos, en breve se te contactará.
+      success: Gracias por dejar tus datos, en breve se le contactará.
   shifts:
-    morning: Mañana
-    afternoon: Tarde
-    evening: Noche
-    saturday: Sabatino
+    morning: Matutino (Martes, Jueves o Viernes de 8:00am a 1:00pm)
+    evening: Vespertino (Lunes a Viernes de 4:00pm a 9:00pm)
+    saturday: Sabatino (9:00am a 1:00pm)
