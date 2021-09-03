@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "sidekiq/web"
 
 Rails.application.routes.draw do
   namespace :administrator do
@@ -8,7 +9,13 @@ Rails.application.routes.draw do
       resources :enqueues
 
       root to: "admins#index"
+  end
+
+  devise_scope :admin do
+    authenticated :admin do
+      mount Sidekiq::Web => "/sidekiq"
     end
+  end
 
   root to: "enqueues#index"
 
