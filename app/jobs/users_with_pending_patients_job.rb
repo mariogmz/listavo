@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class UsersWithPendingPatientsJob < ApplicationJob
-  queue_as :scheduled
-
   def perform
     users_ids.each do |user_id|
       PendingAppointmentsNotificationJob.perform_later(user_id)
