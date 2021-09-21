@@ -11,6 +11,6 @@
     = f.text_field :email
   .field
     = f.label :shift
-    = select_tag(:shift, options_for_select(shifts_options), required: true, class: "form-select")
+    = f.select(:shift, options_for_select(shifts_options), required: true, class: "form-select")
   .actions.text-center.mt-4.mt-md-5
     = f.submit t("appointments.new_appointment"), class: "btn btn-primary btn-lg"

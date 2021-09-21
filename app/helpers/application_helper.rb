@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def shifts_options
     Patient.shifts.keys.map do |shift|
-      [I18n.t("shifts.#{shift}"), Patient.shifts[shift]]
+      [I18n.t("shifts.#{shift}"), shift]
     end
   end
 end
