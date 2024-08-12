@@ -1,7 +1,7 @@
 ---
 
-:enabled: true
-:schedule:
+:scheduler:
+  enabled: true
   notify_pending_patients:
     cron: "0 8 * * *"
     class: UsersWithPendingPatientsJob
